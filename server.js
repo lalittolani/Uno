@@ -373,7 +373,7 @@ function onConnection(socket) {
       let boardColor = cardColor(data[res[1]]['cardOnBoard']);
       let boardNumber = data[res[1]]['cardOnBoard'] % 14;
 
-      if (playedColor === 'black' || playedColor === boardColor || playedNumber === boardNumber) {
+      if (playedColor === 'black' || playedColor === boardColor || playedNumber === boardNumber || boardColor === 'black') {
         // Play card
         io.to(res[1]).emit('sendCard', res[0]);
         data[res[1]]['cardOnBoard'] = res[0];
